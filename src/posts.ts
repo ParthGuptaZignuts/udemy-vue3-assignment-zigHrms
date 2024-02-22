@@ -6,7 +6,7 @@ export interface Post{
     created:string
 }
 
-export interface TimeLinePost extends Omit<Post, 'created'> {
+export interface TimelinePost extends Omit<Post, 'created'> {
     created: DateTime
 }
 

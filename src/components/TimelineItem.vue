@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import {TimeLinePost} from "../posts"
+import {TimelinePost} from "../posts"
 const props = defineProps<{
-post: TimeLinePost
+post: TimelinePost
 }>()
 </script>
 

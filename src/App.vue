@@ -1,13 +1,22 @@
 <script setup lang="ts">
-import HelloWorld from "./components/HelloWorld.vue";
+import Timeline from './components/Timeline.vue';
 </script>
 
 <template>
   <div class="section">
     <div class="container">
-      <HelloWorld />
+      <Suspense>
+        <template #default>
+          <Timeline />
+        </template>
+
+        <template #fallback>
+          <progress class="progress is-primary is-small" />
+        </template>
+      </Suspense>
     </div>
   </div>
 </template>
 
-<style scoped></style>
+
+<!-- npx tsx src/server/index.ts -->
