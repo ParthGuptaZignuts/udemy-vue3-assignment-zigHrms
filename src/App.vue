@@ -11,6 +11,16 @@ const modalStyle = computed(() =>{
   }
 })
 
+async function authenticate(){
+  const res = await window.fetch("/api/current-user",{
+    headers:{
+      'Content-Type' : 'application/json'
+    }
+  })
+  
+}
+authenticate()
+
 </script>
 <template>
   <div class="modal" style="color:white;" :style="modalStyle">
