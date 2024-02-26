@@ -1,19 +1,47 @@
-# Vue 3 + TypeScript + Vite
+Vue 3 Composition API Project with Node and Express Server
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This repository contains a Vue 3 project that utilizes the Composition API, along with a Node.js and Express server to run the application. This setup allows for building a scalable and modular frontend application using Vue 3 Composition API and handling server-side logic with Node and Express.
 
-## Recommended IDE Setup
+Getting Started
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Prerequisites
+Make sure you have the following installed on your machine:
 
-## Type Support For `.vue` Imports in TS
+Node.js
+npm (Node Package Manager)
+Installation
+Clone the repository:
+git clone : https://github.com/ParthGuptaZignuts/udemy-vue3-assignment-zigHrms/tree/develop
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+Change into the project directory:
+cd vue3-composition-api
+Install dependencies for both the Vue 3 project and the Node.js server:
+To intsall packages : 
+npm install
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+Running the Application :
+Start the Node.js server: npx tsx src/server/index.ts
+This will start the Express server on http://localhost:8000.
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-# udemy-vue3-assignment-zigHrms
+Open a new terminal and navigate to the Vue 3 project:
+npm run serve
+This will start the development server for the Vue 3 app on http://localhost:5173.
+
+
+Project Structure
+The project is structured as follows:
+client: Contains the Vue 3 Composition API project.
+server: Contains the Node.js and Express server.
+
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+Contributing
+If you would like to contribute to the project, please follow the CONTRIBUTING.md guidelines.
+
+Acknowledgments
+Vue.js for the Vue 3 framework.
+Node.js for the server-side JavaScript runtime.
+Express for the web application framework for Node.js.
+
+Happy coding!

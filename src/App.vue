@@ -28,4 +28,5 @@ const modalStyle = computed(() => {
   </div>
 </template>
 
+<!-- server starting command line :  -->
 <!-- npx tsx src/server/index.ts -->
