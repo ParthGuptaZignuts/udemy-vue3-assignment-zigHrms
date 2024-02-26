@@ -4,9 +4,19 @@ import App from './App.vue'
 import 'bulma/css/bulma.css';
 import {router} from "./router"
 import { createPinia } from 'pinia';
+import { useUsers } from './stores/users';
+import { usePosts } from './stores/posts';
+
 
 const pinia = createPinia();
 const app = createApp(App)
 app.use(pinia)
-app.use(router)
-app.mount('#app')
+const usersStore = useUsers();
+const postsStore = usePosts();
+Promise.all([
+   usersStore.authenticate(),
+   postsStore.fetchPosts()
+]).then(()=>{
+    app.use(router)
+    app.mount('#app')
+})

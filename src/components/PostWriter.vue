@@ -29,11 +29,11 @@ function parseHtml(markdown: string) {
       breaks: true,
       highlight: (code) => {
         return highlightjs.highlightAuto(code).value;
-      }
+      },
     },
     (err, parseResult) => {
       html.value = parseResult;
-      console.log("console log in post writer err",err)
+      console.log("console log in post writer err", err);
     }
   );
 }
@@ -44,7 +44,7 @@ watch(
     parseHtml(newContent);
   }, 250),
   {
-    immediate: true
+    immediate: true,
   }
 );
 
@@ -64,18 +64,21 @@ function handleInput() {
 
 async function handleClick() {
   if (!usersStore.currentUserId) {
-    throw Error('User was not found')
+    throw Error("User was not found");
   }
 
   const newPost: Post = {
     ...props.post,
-    created: typeof props.post.created === 'string' ? props.post.created : props.post.created.toISO(),
+    created:
+      typeof props.post.created === "string"
+        ? props.post.created
+        : props.post.created.toISO(),
     title: title.value,
     authorId: usersStore.currentUserId,
     markdown: content.value,
-    html: html.value
+    html: html.value,
   };
-  emit('submit', newPost);
+  emit("submit", newPost);
 }
 </script>
 
@@ -84,20 +87,14 @@ async function handleClick() {
     <div class="column">
       <div class="field">
         <div class="label">Post title</div>
-        <input
-          v-model="title"
-          type="text"
-          class="input" />
+        <input v-model="title" type="text" class="input" />
       </div>
     </div>
   </div>
 
   <div class="columns">
     <div class="column">
-      <div
-        ref="contentEditable"
-        contenteditable
-        @input="handleInput" />
+      <div ref="contentEditable" contenteditable @input="handleInput" />
     </div>
     <div class="column">
       <div v-html="html" />
@@ -106,9 +103,7 @@ async function handleClick() {
 
   <div class="columns">
     <div class="column">
-      <button
-        class="button is-primary is-pulled-right"
-        @click="handleClick">
+      <button class="button is-primary is-pulled-right" @click="handleClick">
         Save Post
       </button>
     </div>

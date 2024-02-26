@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import { useModal } from '../composables/modal';
-import { useUsers } from '../stores/users';
-import { NewUser } from '../users';
-import userForm from './userForm.vue';
+import { useModal } from "../composables/modal";
+import { useUsers } from "../stores/users";
+import { NewUser } from "../users";
+import userForm from "./userForm.vue";
 
-const usersStore = useUsers() ;
+const usersStore = useUsers();
 const modal = useModal();
 
-async function handleSignup(newUser:NewUser){
-    await usersStore.createUser(newUser)
-    modal.hideModal()
+async function handleSignup(newUser: NewUser) {
+  await usersStore.createUser(newUser);
+  modal.hideModal();
 }
 </script>
 
 <template>
-    <userForm @submit="handleSignup"/>
+  <userForm @submit="handleSignup" />
 </template>
