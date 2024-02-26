@@ -7,7 +7,6 @@ import { useUsers } from "../stores/users";
 const route = useRoute();
 const postsStore = usePosts();
 const usersStore = useUsers();
-
 const id = route.params.id as string;
 const post = postsStore.all.get(id);
 
@@ -38,7 +37,6 @@ const canEdit = computed(() => {
         class="is-link button is-rounded"
         >Edit Post</RouterLink
       >
-  
       <h1>{{ post.title }}</h1>
       <div v-html="post.html" />
     </div>

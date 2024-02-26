@@ -7,7 +7,6 @@ import { Post } from '../posts';
 const route = useRoute();
 const router = useRouter();
 const postsStore = usePosts();
-
 const id = route.params.id as string
 const post = postsStore.all.get(id)
 

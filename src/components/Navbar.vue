@@ -12,6 +12,7 @@ async function logout() {
   router.push({ path: "/" });
 }
 </script>
+
 <template>
   <div class="navbar">
     <div class="navbar-end">

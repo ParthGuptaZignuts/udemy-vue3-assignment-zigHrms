@@ -18,7 +18,6 @@ const title = ref(props.post.title);
 const content = ref(props.post.markdown);
 const html = ref("");
 const contentEditable = ref<HTMLDivElement>();
-
 const usersStore = useUsers();
 
 function parseHtml(markdown: string) {
