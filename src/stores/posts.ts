@@ -9,7 +9,7 @@ interface PostsState {
   selectedPeriod: Period;
 }
 
-function delay() {
+const delay =() => {
   return new Promise<void>((res) => setTimeout(res, 1500));
 }
 

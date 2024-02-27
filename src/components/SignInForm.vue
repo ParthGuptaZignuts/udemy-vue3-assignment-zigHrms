@@ -9,7 +9,7 @@ const usersStore = useUsers();
 const modal = useModal();
 const error = ref("");
 
-async function handleSignin(newUser: NewUser) {
+const handleSignin = async(newUser: NewUser) =>{
   const body = JSON.stringify(newUser);
   const res = await window.fetch("/api/login", {
     method: "POST",

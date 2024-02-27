@@ -14,9 +14,11 @@ if (!post) {
   throw Error(`Post with id ${id} was not found`)
 }
 
-async function handleSubmit (post: Post) {
-  await postsStore.updatePost(post);
-  router.push("/")
+const handleSubmit = async (post: Post) => {
+  if(post){
+    await postsStore.updatePost(post);
+    router.push("/")
+  }
 }
 </script>
 

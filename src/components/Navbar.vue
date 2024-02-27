@@ -7,7 +7,7 @@ const modal = useModal();
 const usersStore = useUsers();
 const router = useRouter();
 
-async function logout() {
+const logout = async () => {
   await usersStore.logout();
   router.push({ path: "/" });
 }

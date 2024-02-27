@@ -25,7 +25,7 @@ const isInvalid = computed(() => {
   return !usernameStatus.value.valid || !passwordStatus.value.valid;
 });
 
-async function handleSubmit() {
+const handleSubmit = async() => {
   if (isInvalid.value) {
     return;
   }

@@ -24,9 +24,11 @@ const post: TimelinePost = {
   html: '<h2>Title</h2>'
 }
 
-async function handleSubmit (post: Post) {
-  await postsStore.createPost(post);
-  router.push("/")
+const handleSubmit = async(post: Post) => {
+  if(post){
+    await postsStore.createPost(post);
+    router.push("/")
+  }
 }
 </script>
 

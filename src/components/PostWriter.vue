@@ -20,7 +20,7 @@ const html = ref("");
 const contentEditable = ref<HTMLDivElement>();
 const usersStore = useUsers();
 
-function parseHtml(markdown: string) {
+const parseHtml = (markdown: string) => {
   marked.parse(
     markdown,
     {
@@ -54,14 +54,14 @@ onMounted(() => {
   contentEditable.value.innerText = content.value;
 });
 
-function handleInput() {
+const handleInput = () => {
   if (!contentEditable.value) {
     throw Error("ContentEditable DOM node was not found");
   }
   content.value = contentEditable.value.innerText;
 }
 
-async function handleClick() {
+const handleClick = async () => {
   if (!usersStore.currentUserId) {
     throw Error("User was not found");
   }
