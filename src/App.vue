@@ -1,15 +1,16 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, Ref } from "vue";
 import Navbar from "./components/Navbar.vue";
 import { useModal } from "./composables/modal";
 
-const modal = useModal();
-const modalStyle = computed(() => {
+const modal= useModal();
+const modalStyle: Ref<{ display: string }> = computed(() => {
   return {
     display: modal.show.value ? "block" : "none",
   };
 });
 </script>
+
 
 <template>
   <div class="modal" style="color: white" :style="modalStyle">

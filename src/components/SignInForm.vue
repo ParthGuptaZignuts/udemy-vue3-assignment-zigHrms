@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { useModal } from "../composables/modal";
-import { useUsers } from "../stores/users";
+import { useModal, } from "../composables/modal";
+import { useUsers,} from "../stores/users";
 import { NewUser } from "../users";
 import userForm from "./userForm.vue";
 import { ref } from "vue";
 
-const usersStore = useUsers();
+const usersStore= useUsers();
 const modal = useModal();
-const error = ref("");
+const error = ref<string>("");
 
-const handleSignin = async(newUser: NewUser) =>{
+const handleSignin = async (newUser: NewUser): Promise<void> => {
   const body = JSON.stringify(newUser);
   const res = await window.fetch("/api/login", {
     method: "POST",
@@ -18,14 +18,16 @@ const handleSignin = async(newUser: NewUser) =>{
     },
     body,
   });
+
   if ([401, 404].includes(res.status)) {
-    error.value = "username or password is incorrect.";
+    error.value = "Username or password is incorrect.";
   } else {
-    usersStore.authenticate();
+    await usersStore.authenticate();
     modal.hideModal();
   }
 }
 </script>
+
 
 <template>
   <userForm @submit="handleSignin" :error="error" />

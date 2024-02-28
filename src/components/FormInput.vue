@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { Status } from "../validation";
+import { defineProps, defineEmits } from 'vue';
+import { Status } from '../validation';
 
-defineProps<{
+const props = defineProps<{
   name: string;
   modelValue: string;
   status: Status;
@@ -9,14 +10,15 @@ defineProps<{
 }>();
 
 const emit = defineEmits<{
-  (event: "update:modelValue", value: string): void;
+  (event: 'update:modelValue', value: string): void;
 }>();
 
 const handleInput = (e: Event) => {
   const value = (e.target as HTMLInputElement).value;
-  emit("update:modelValue", value);
-}
+  emit('update:modelValue', value);
+};
 </script>
+
 
 <template>
   <div class="field">

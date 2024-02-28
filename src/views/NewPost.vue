@@ -1,18 +1,18 @@
 <script lang="ts" setup>
 import _ from "lodash";
-import { DateTime } from "luxon"
+import { DateTime } from "luxon";
 import { useRouter } from "vue-router";
 import PostWriter from '../components/PostWriter.vue';
 import { Post, TimelinePost } from '../posts';
-import { usePosts } from "../stores/posts";
+import { usePosts} from "../stores/posts";
 import { useUsers } from "../stores/users";
 
 const usersStore = useUsers();
-const router = useRouter()
+const router = useRouter();
 const postsStore = usePosts();
 
 if (!usersStore.currentUserId) {
-  throw Error('User was not found')
+  throw Error('User was not found');
 }
 
 const post: TimelinePost = {
@@ -22,15 +22,16 @@ const post: TimelinePost = {
   created: DateTime.now(),
   markdown: '## Title',
   html: '<h2>Title</h2>'
-}
+};
 
-const handleSubmit = async(post: Post) => {
-  if(post){
+const handleSubmit = async (post: Post): Promise<void> => {
+  if (post) {
     await postsStore.createPost(post);
-    router.push("/")
+    router.push("/");
   }
-}
+};
 </script>
+
 
 <template>
   New Post

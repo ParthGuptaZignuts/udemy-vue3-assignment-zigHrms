@@ -1,20 +1,21 @@
 <script lang="ts" setup>
-import { computed } from "vue";
-import { useRoute } from "vue-router";
+import { computed, Ref } from "vue";
+import { useRoute, RouteLocationNormalizedLoaded } from "vue-router";
 import { usePosts } from "../stores/posts";
-import { useUsers } from "../stores/users";
+import { useUsers} from "../stores/users";
+import { Post } from "../posts";
 
-const route = useRoute();
+const route: RouteLocationNormalizedLoaded = useRoute();
 const postsStore = usePosts();
 const usersStore = useUsers();
-const id = route.params.id as string;
-const post = postsStore.all.get(id);
+const id: string = route.params.id as string;
+const post: Post | undefined = postsStore.all.get(id);
 
 if (!post) {
   throw Error(`Post with id ${id} was not found`);
 }
 
-const canEdit = computed(() => {
+const canEdit: Ref<boolean> = computed(() => {
   if (!usersStore.currentUserId) {
     return false;
   }
@@ -26,6 +27,7 @@ const canEdit = computed(() => {
   return true;
 });
 </script>
+
 
 <template>
   <div class="columns">
